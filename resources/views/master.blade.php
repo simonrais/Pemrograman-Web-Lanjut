@@ -6,12 +6,13 @@
 <body>
 		<header>
 			
-			<h2>View</h2>
+			<h2>Landgraph Portofolio</h2>
 
 			<nav>
-				<a href="/home">Home </a> |
+				<a href="dashboard">Home </a> |
 				<a href="/about">About </a> |
 				<a href="/contact">Contact</a>
+				<a href="/manage">Manage</a>
 
 			</nav>
 		</header>

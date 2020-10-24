@@ -10,6 +10,7 @@
 <section class="about" style="margin-bottom: 14%">
 <div class="jumbotron jumbotron-fluid mt-5">
     <div class="container b-5">
+      <h2 class="display-4 mb">About Me</h2>
       <h2 class="display-4 mb"></h2>
       <p class="lead">
    <!--    <img class="card-img-top" src="simon.jpg" > -->

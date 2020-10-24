@@ -9,10 +9,10 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-Route::get('/', function () {
-    return view('home');
-});
+// */
+// Route::get('/', function () {
+//     return view('home');
+// });
 // Route::get('/hello',function () {
 // 	return 'Hello World';
 // });
@@ -35,17 +35,30 @@ Route::get('/', function () {
 
 // Route View Utama
 // Route::get('/home', 'HomeController@home');
-Route::get('/dashboard', 'ArticleController@all');
-Route::get('/about', 'AboutController@about');
-Route::get('/article/{id}','ArticleController@articles');
-Route::get('/hello', 'HelloController@hello');
+
+// Route::get('/hello', 'HelloController@hello');
 
 // Route Template Kuis
-Route::get('/homeboot','HomeController@homebootstrap');
-Route::get('/blogboot/{id}','ArticleController@articles');
-Route::get('/aboutMe', 'AboutMeController@aboutMe');
-Route::get('/contact', 'ContactController@contact');
+// Route::get('/homeboot','HomeController@homebootstrap');
+// Route::get('/blogboot/{id}','ArticleController@articles');
+// Route::get('/aboutMe', 'AboutMeController@aboutMe');
+// Route::get('/contact', 'ContactController@contact');
+// Route::get('/about', 'AboutController@about');
 Auth::routes();
 
+// Route add UTS
+// view
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'ArticleController@all');
+Route::get('/article/{id}','ArticleController@articles');
+Route::get('/contact', 'ContactController@contact');
+Route::get('/about', 'AboutController@about');
+Route::get('/manage', 'ArticleController@index')->name ('manage');
+// process
+Route::get ('/articles/add','ArticleController@add');
+Route::post ('/article/create','ArticleController@create');
+Route::get('/article/edit/{id}','ArticleController@edit');
+Route::post('/article/update/{id}','ArticleController@update');
+Route::get('/article/delete/{id}','ArticleController@delete');
+
 

@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in!
-                     <a href="home">Home</a>
+                     <a href="dashboard">Home</a>
                 </div>
             </div>
         </div>

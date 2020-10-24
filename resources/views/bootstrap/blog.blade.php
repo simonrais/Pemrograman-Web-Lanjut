@@ -23,14 +23,14 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Landscape Photography</a>
+      <a class="navbar-brand" href="dashboard">Landscape Photography</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/home">Home <!-- biar ngelink ke  home mon -->
+            <a class="nav-link" href="dashboard">Home <!-- biar ngelink ke  home mon -->
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -38,10 +38,10 @@
             <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="/contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/manage">Manage</a>
           </li>
         </ul>
       </div>
@@ -58,12 +58,12 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">{{ $hasil ?? ''->title }}</h1>
+        <h1 class="mt-4">{{ $hasil->title }}</h1>
 
         <!-- Author -->
         <p class="lead">
           by
-          <a href="#">Landgraph</a>
+          <a href="dashboard">Landgraph</a>
         </p>
 
         <hr>
@@ -74,17 +74,15 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="{{ $hasil ?? ''->imageurl }}" alt="">
+        <img class="img-fluid rounded" src="{{ $hasil->imageurl }}" alt="">
 
         <hr>
 
         <!-- Post Content -->
         <p class="lead">Articles Photography</p>
 
-        <p>{{ $hasil ?? ''->content }}</p>
-
-    
-
+        <p>{{ $hasil->content }}</p>
+        
         <blockquote class="blockquote">
           <p class="mb-0">Save money and travel the world</p>
           <footer class="blockquote-footer">

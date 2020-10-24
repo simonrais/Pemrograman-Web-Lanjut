@@ -17,7 +17,7 @@
     <br> 
       Email                : simonrais@gmail.com<br>
       Instagram            : @simon_Rais <br>
-      Pinterest 		   : simon rais
+      Pinterest 		       : simon rais <br>
       WhatsApp             : 0822 5608 5623 <br>
       Youtube Channel      : simon rais
      </p>
