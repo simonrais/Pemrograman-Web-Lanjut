@@ -56,9 +56,9 @@ Route::get('/about', 'AboutController@about');
 Route::get('/manage', 'ArticleController@index')->name ('manage');
 // process
 Route::get ('/articles/add','ArticleController@add');
-Route::post ('/article/create','ArticleController@create');
-Route::get('/article/edit/{id}','ArticleController@edit');
-Route::post('/article/update/{id}','ArticleController@update');
-Route::get('/article/delete/{id}','ArticleController@delete');
+Route::post ('/articles/create','ArticleController@create');
+Route::get('/articles/edit/{id}','ArticleController@edit');
+Route::post('/articles/update/{id}','ArticleController@update');
+Route::get('/articles/delete/{id}','ArticleController@delete');
 
 
