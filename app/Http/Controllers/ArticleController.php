@@ -60,6 +60,6 @@ class ArticleController extends Controller
 	public function delete($id){
 			$article = Article::find($id);
 			$article->delete();
-			return redirect('/manage');
+			return redirect( '/manage' ); 
 	}
 }
