@@ -11,14 +11,14 @@
 
         </br>
         </br>
-    {{-- Menghandle File dengan menambahkan enctpye pada form action--}}
-        <form action="/article/create" method="post" enctype="multipart/form-data"> 
+    {{-- Menghandle File dengan menambahkan atribut enctpye pada form action--}} 
+        <form action="/article/create" method="post" enctype="multipart/form-data">   
                 @csrf
                     <div class="form-group"><br><br>
                         <label for="title">Artikel </label>
                         <input type="text" class="form-control"required="required" name="title" placeholder="Add Article Here"></br>
                     </div>
-                    {{-- Mengubah type text menjadi File --}}
+                    {{-- Mengubah type text menjadi file ini --}}
                     <div class="form-group">
                         <label for="image">Image Url</label>
                         <input type="file" class="form-control"required="required" name="image" placeholder="Add Link Image Here"></br>

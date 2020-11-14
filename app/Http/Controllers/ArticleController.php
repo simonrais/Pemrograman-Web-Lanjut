@@ -36,19 +36,19 @@ class ArticleController extends Controller
 	public function add(){
 		return view('addarticle');
 	} 
-	// Tambahan modifikasi Tipe input Menjadi File (dari text ke file ny)
+	// Tambahan modifikasi Tipe input Menjadi File (dari text ke file )
 	public function create(Request $request)
-		{
-			if($request->file('image')){
-			$image_name = $request->file('image')->store('images','public');
-		}
-		Article::create([
-			'title' => $request->title,
-			'content' => $request->content,
-			'featured_image' => $image_name,
-		]);
-		return redirect('/manage');
+	{
+		if($request->file('image')){
+		$image_name = $request->file('image')->store('images','public'); 
 	}
+	Article::create([
+		'title' => $request->title,
+		'content' => $request->content,
+		'featured_image' => $image_name,
+	]);
+	return redirect('/manage');
+}
 
 	// public function create(Request $request){
 	// 	Article::create([
