@@ -36,7 +36,7 @@ class ArticleController extends Controller
 	public function add(){
 		return view('addarticle');
 	} 
-	// Tambahan modifikasi Tipe input Menjadi File (dari text ke file)
+	// Tambahan modifikasi Tipe input Menjadi File (dari text ke file ny)
 	public function create(Request $request)
 		{
 			if($request->file('image')){

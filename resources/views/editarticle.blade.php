@@ -25,7 +25,7 @@
                         {{-- <img width="150px" src="{{asset('storage/'.$article->featured_image )}}"> --}}
                     </div>
                     <button type="submit" class="btn btn-primary float-center2" class="btn btn-primary btn-radiuszan"><i class="fa fa-plus-circle" aria-hidden="true" ></i>  Update Content</button><br><br>
-                {{-- Try --}}
+                {{-- Try on --}}
                 </form>
 </div>
 </div>
