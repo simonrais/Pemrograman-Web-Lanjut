@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
-	public function __construct() 			//fungsi agar tidak dapat membuka hal web sebelum login
-    {
-		$this->middleware('auth');
-		// $this->middleware(function($request, $next){
-		// 	if(Gate::allows('manage-articles')) return $next($request);
-		// 	abort(403, 'Anda tidak memiliki cukup hak akses');
-		// 	});
-	}
+	// public function __construct() 			//fungsi agar tidak dapat membuka hal web sebelum login
+    // {
+	// 	$this->middleware('auth');
+	// 	$this->middleware(function($request, $next){
+	// 		if(Gate::allows('manage-articles')) return $next($request);
+	// 		abort(403, 'Anda tidak memiliki cukup hak akses');
+	// 		});
+	// }
 
     public function articles($id){
     	$hasil = Article::find($id);
@@ -35,16 +35,29 @@ class ArticleController extends Controller
 	}
 	public function add(){
 		return view('addarticle');
-	}
-
-	public function create(Request $request){
+	} 
+	// Modifikasi Tipe input Menjadi File (dari text ke file)
+	public function create(Request $request)
+		{
+			if($request->file('image')){
+			$image_name = $request->file('image')->store('images','public');
+		}
 		Article::create([
-		'title' => $request->title,
-		'content' => $request->content,
-		'imageurl' => $request->image
+			'title' => $request->title,
+			'content' => $request->content,
+			'featured_image' => $image_name,
 		]);
 		return redirect('/manage');
 	}
+
+	// public function create(Request $request){
+	// 	Article::create([
+	// 	'title' => $request->title,
+	// 	'content' => $request->content,
+	// 	'imageurl' => $request->image
+	// 	]);
+	// 	return redirect('/manage');
+	// }
 	public function edit($id){
 			$article = Article::find($id);
 			return view('editarticle',['article'=>$article]);
@@ -55,6 +68,7 @@ class ArticleController extends Controller
 			$article->content = $request->content;
 			$article->imageurl = $request->image;
 			$article->save();
+
 	return redirect('/manage');
 	}
 	public function delete($id){

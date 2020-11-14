@@ -11,15 +11,16 @@
 
         </br>
         </br>
-        <form action="/article/create" method="post">
+    {{-- Menghandle File dengan menambahkan enctpye --}}
+        <form action="/article/create" method="post" enctype="multipart/form-data"> 
                 @csrf
                     <div class="form-group"><br><br>
                         <label for="title">Artikel </label>
-                        <input type="text" class="form-control"required="required" name="title" placeholder="Add Country Here"></br>
+                        <input type="text" class="form-control"required="required" name="title" placeholder="Add Article Here"></br>
                     </div>
                     <div class="form-group">
                         <label for="image">Image Url</label>
-                        <input type="text" class="form-control"required="required" name="image" placeholder="Add Link Image Here"></br>
+                        <input type="file" class="form-control"required="required" name="image" placeholder="Add Link Image Here"></br>
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>

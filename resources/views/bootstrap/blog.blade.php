@@ -43,6 +43,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/manage">Manage</a>
           </li>
+          
         </ul>
       </div>
     </div>
