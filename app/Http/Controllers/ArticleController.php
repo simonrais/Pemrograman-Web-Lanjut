@@ -49,7 +49,7 @@ class ArticleController extends Controller
 		]);
 		return redirect('/manage');
 	}
-
+	//
 	// public function create(Request $request){
 	// 	Article::create([
 	// 	'title' => $request->title,
