@@ -36,7 +36,7 @@ class ArticleController extends Controller
 	public function add(){
 		return view('addarticle');
 	} 
-	// Modifikasi Tipe input Menjadi File (dari text ke file)
+	// Tambahan modifikasi Tipe input Menjadi File (dari text ke file)
 	public function create(Request $request)
 		{
 			if($request->file('image')){
@@ -49,8 +49,7 @@ class ArticleController extends Controller
 		]);
 		return redirect('/manage');
 	}
-	//
-	//
+
 	// public function create(Request $request){
 	// 	Article::create([
 	// 	'title' => $request->title,
