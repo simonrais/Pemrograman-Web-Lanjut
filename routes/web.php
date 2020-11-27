@@ -49,16 +49,25 @@ Auth::routes();
 // Route add UTS
 // view
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'ArticleController@all');
+Route::get('/dashboard', 'ArticleController@all')->name('dashboard');
 Route::get('/article/{id}','ArticleController@articles');
 Route::get('/contact', 'ContactController@contact');
 Route::get('/about', 'AboutController@about');
-Route::get('/manage', 'ArticleController@index')->name ('manage');
+Route::get('/manage', 'ManageController@index')->name ('manage');
+// Route::get('/articles/store','ManageController@store');
+
 // process
-Route::get ('/articles/add','ArticleController@add');
-Route::post ('/articles/create','ArticleController@create');
-Route::get('/articles/edit/{id}','ArticleController@edit');
-Route::post('/articles/update/{id}','ArticleController@update');
-Route::get('/articles/delete/{id}','ArticleController@delete');
+Route::get ('/articles/add','ManageController@add');
+Route::post ('/articles/create','ManageController@create');
+Route::get('/articles/edit/{id}','ManageController@edit');
+Route::post('/articles/update/{id}','ManageController@update');
+Route::get('/articles/delete/{id}','ManageController@delete');
+Route::get('/articles/cetak_pdf','ManageController@cetak_pdf');
 
-
+// User 
+// Route::get('/manageuser','UserController@index');
+// Route::get('/manageuser/addUser/{id}','UserController@addUser');
+// Route::post('/manageuser/create','UserController@create');
+// Route::get('/manageuser/edit{id}','UserController@edit');
+// Route::post('/manageuser/update{id}','UserController@update');
+// Route::get('/manageuser/delete{id}','UserController@delete');

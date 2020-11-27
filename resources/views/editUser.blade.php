@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','add')
+@section('title','addUser')
 
 @section('content')
 
@@ -9,9 +9,8 @@
     </div>
     <div class="card" style="padding: 0 20px 8px;">
 
-        <form action="/articles/update/{{$article->id}}" method="post" enctype="multipart/form-data">
+        <form action="/article/update/{{$article->id}}" method="post">
                 @csrf
-                <input type="hidden" name="id" value="{{$article->id}}"><br>
                     <div class="form-group"><br><br>
                         <label for="title">Judul</label>
                         <input type="text" class="form-control"required="required" name="title" value="{{ $article->title }}" placeholder="Add title Here"></br>

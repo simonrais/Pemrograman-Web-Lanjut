@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Article;
 use Illuminate\Support\Facades\Cache;
@@ -9,15 +7,14 @@ use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
-	// public function __construct() 			//fungsi agar tidak dapat membuka hal web sebelum login
-    // {
-	// 	$this->middleware('auth');
-	// 	$this->middleware(function($request, $next){
-	// 		if(Gate::allows('manage-articles')) return $next($request);
-	// 		abort(403, 'Anda tidak memiliki cukup hak akses');
-	// 		});
-	// }
-
+	public function __construct() 			//fungsi agar tidak dapat membuka hal web sebelum login
+    {
+		// $this->middleware('auth');
+		$this->middleware(function($request, $next){
+			if(Gate::allows('user-display')) return $next($request);
+			abort(403, 'Anda tidak memiliki cukup hak akses');
+			});
+	}
     public function articles($id){
     	$hasil = Article::find($id);
     	return view ('Article',['id' => $id]) ->with (compact('hasil'));
@@ -26,54 +23,11 @@ class ArticleController extends Controller
     public function all (){
     	// return view ('Blog')
     	$article = Article::all(); 
-    	return view('home1',['article' => $article]);
+    	return view('bootstrap.home1',['article' => $article]);
 	} 
 	
 	public function index(){
 		$article = Article::all();
 		return view('manage',['article' => $article]);
-	}
-	public function add(){
-		return view('addarticle');
-	} 
-	// Tambahan modifikasi Tipe input Menjadi File (dari text ke file )
-	public function create(Request $request)
-	{
-		if($request->file('image')){
-		$image_name = $request->file('image')->store('images','public'); 
-	}
-	Article::create([
-		'title' => $request->title,
-		'content' => $request->content,
-		'featured_image' => $image_name,
-	]);
-	return redirect('/manage');
-}
-
-	// public function create(Request $request){
-	// 	Article::create([
-	// 	'title' => $request->title,
-	// 	'content' => $request->content,
-	// 	'imageurl' => $request->image
-	// 	]);
-	// 	return redirect('/manage');
-	// }
-	public function edit($id){
-			$article = Article::find($id);
-			return view('editarticle',['article'=>$article]);
-	}
-	public function update($id, Request $request){
-			$article = Article::find($id);
-			$article->title = $request->title;
-			$article->content = $request->content;
-			$article->imageurl = $request->image;
-			$article->save();
-
-	return redirect('/manage');
-	}
-	public function delete($id){
-			$article = Article::find($id);
-			$article->delete();
-			return redirect( '/manage' ); 
 	}
 }

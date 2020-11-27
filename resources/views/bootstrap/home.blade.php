@@ -17,7 +17,6 @@
   <link href="/css/blog-home.css" rel="stylesheet">
 
 </head>
-
 <body>
 
   <!-- Navigation -->
@@ -31,11 +30,11 @@
         <ul class="navbar-nav ml-auto">
 
           {{-- Menyembunykan halaman Home dari user, ketika admin login --}}
-          {{-- <li class="nav-item active">
+          <li class="nav-item active">
             <a class="nav-link" href="dashboard">Home
               <span class="sr-only">(current)</span>
             </a>
-          </li> --}}
+          </li>
 
           <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
             @can('user-display')
@@ -44,9 +43,9 @@
           </li>
 
           {{-- Menyembunykan Home dari halaman about, ketika user login --}}
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
-          </li> --}}
+          </li>
 
           <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
             @can('user-display')
@@ -58,23 +57,18 @@
             <a class="nav-link" href="/contact">Contact</a>
           </li>
 
-          {{-- <li class="nav-item">    
-            <a class="nav-link" href="/manage">Manage</a>
-          </li> --}}
-
           {{-- Menyembunykan Manage dari halaman user, ketika user login --}}
           <li class="nav-item {{ Route::is('manage') ? 'active' : '' }}"> 
             @can('manage-articles')
             <a class="nav-link" href="{{ route('manage') }}">Manage</a>
             @endcan
           </li>
-
-
+          
           <li class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                   {{ Auth::user()->name }} <span class="caret"></span>
               </a>
-
+              
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('logout') }}"
                      onclick="event.preventDefault();

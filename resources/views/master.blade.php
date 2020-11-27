@@ -9,10 +9,21 @@
 			<h2>Landgraph Portofolio</h2>
 
 			<nav>
+				@can('user-display')
 				<a href="dashboard">Home </a> |
+				@endcan
+
+				@can('user-display')
 				<a href="/about">About </a> |
+				@endcan
+
+				@can('user-display')
 				<a href="/contact">Contact</a>
+				@endcan
+
+				@can('manage-articles')
 				<a href="/manage">Manage</a>
+				@endcan
 
 			</nav>
 		</header>

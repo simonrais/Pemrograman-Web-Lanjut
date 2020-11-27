@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','add')
+@section('title','adduser')
 
 @section('content')
 
@@ -11,7 +11,7 @@
         </br>
         </br>
     {{-- Menghandle File dengan menambahkan atribut enctpye pada form action--}} 
-        <form action="/articles/create" method="post" enctype="multipart/form-data">   
+        <form action="/article/create" method="get" enctype="multipart/form-data">   
                 @csrf
                     <div class="form-group"><br><br>
                         <label for="title">Artikel </label>
@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for="image">Image Url</label>
                         <input type="file" class="form-control"required="required" name="image" placeholder="Add Link Image Here"></br>
-
+                        
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>
